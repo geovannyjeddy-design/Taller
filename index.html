@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Taller – Productividad y Rentabilidad</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family: Arial; background:#f4f4f4; padding:20px }
+.box { background:#fff; padding:15px; margin-bottom:20px; border-radius:6px }
+input, button { width:100%; padding:8px; margin-top:6px }
+button { background:#2c7be5; color:#fff; border:none }
+table { width:100%; border-collapse:collapse; margin-top:10px }
+th, td { border:1px solid #ccc; padding:6px; text-align:center }
+.ok { color:green } .bad { color:red }
+</style>
+</head>
+<body>
+
+<h1>🔧 Taller – Control Profesional</h1>
+
+<div class="box">
+<h2>Orden de trabajo</h2>
+<input id="cliente" placeholder="Cliente">
+<input id="trabajo" placeholder="Trabajo">
+<input id="horas" type="number" placeholder="Horas">
+<input id="materiales" type="number" placeholder="Materiales €">
+<input id="precio" type="number" placeholder="Precio cobrado €">
+<input id="costeHora" type="number" placeholder="Coste hora €">
+<button onclick="agregar()">Agregar</button>
+</div>
+
+<div class="box">
+<h2>Resultados</h2>
+<table>
+<thead>
+<tr>
+<th>Cliente</th><th>Trabajo</th><th>Horas</th>
+<th>Coste</th><th>Precio</th><th>Beneficio</th>
+</tr>
+</thead>
+<tbody id="tabla"></tbody>
+</table>
+<p id="resumen"></p>
+</div>
+
+<div class="box">
+<h2>📊 Dashboard</h2>
+<canvas id="grafica"></canvas>
+</div>
+
+<script>
+let totalHoras = 0;
+let totalBeneficio = 0;
+
+function agregar() {
+  const c = cliente.value;
+  const t = trabajo.value;
+  const h = +horas.value;
+  const m = +materiales.value;
+  const p = +precio.value;
+  const ch = +costeHora.value;
+
+  if (!c || !t || !h || !p || !ch) {
+    alert("Completa todos los campos");
+    return;
+  }
+
+  const coste = (h * ch) + m;
+  const beneficio = p - coste;
+
+  totalHoras += h;
+  totalBeneficio += beneficio;
+
+  tabla.innerHTML += `
+    <tr>
+      <td>${c}</td>
+      <td>${t}</td>
+      <td>${h}</td>
+      <td>${coste.toFixed(2)} €</td>
+      <td>${p.toFixed(2)} €</td>
+      <td class="${beneficio>=0?'ok':'bad'}">
+        ${beneficio.toFixed(2)} €
+      </td>
+    </tr>
+  `;
+
+  resumen.innerHTML = `
+    ⏱ Horas productivas: <b>${totalHoras}</b><br>
+    💰 Beneficio total: <b>${totalBeneficio.toFixed(2)} €</b>
+  `;
+
+  dibujarGrafica();
+}
+
+function dibujarGrafica() {
+  if (window.graf) window.graf.destroy();
+  window.graf = new Chart(grafica, {
+    type: "bar",
+    data: {
+      labels: ["Horas", "Beneficio €"],
+      datasets: [{ data: [totalHoras, totalBeneficio] }]
+    }
+  });
+}
+</script>
+
+</body>
+</html>

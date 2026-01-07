@@ -1,108 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Taller – Productividad y Rentabilidad</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-body { font-family: Arial; background:#f4f4f4; padding:20px }
-.box { background:#fff; padding:15px; margin-bottom:20px; border-radius:6px }
-input, button { width:100%; padding:8px; margin-top:6px }
-button { background:#2c7be5; color:#fff; border:none }
-table { width:100%; border-collapse:collapse; margin-top:10px }
-th, td { border:1px solid #ccc; padding:6px; text-align:center }
-.ok { color:green } .bad { color:red }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tapicería Eddy — Estilo Moderno</title>
+  <style>
+    :root {
+      --bg:#0f172a;
+      --card:#ffffff;
+      --ink:#020617;
+      --primary:#0ea5e9;
+      --primary-dark:#0284c7;
+      --muted:#64748b;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family: Inter, Arial, Helvetica, sans-serif; background:var(--bg); color:var(--ink); }
+    header { background:linear-gradient(135deg,#020617,#0f172a); color:#f8fafc; padding:28px 24px; }
+    header .wrap { max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+    header h1 { margin:0; font-size:26px; letter-spacing:.5px; }
+    nav a { color:#e2e8f0; margin-left:16px; text-decoration:none; font-size:14px; }
+    nav a:hover { text-decoration:underline; }
+
+    .hero { padding:100px 24px; color:#f1f5f9; background:
+      linear-gradient(180deg,rgba(2,6,23,.65),rgba(2,6,23,.9)),
+      url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3l0bTQ3b2o2Z2o0dndzZ3V0dWZ5c3N6bG5jM2ZpM3h4ZHFmZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0HlBO7eyXzSZkJri/giphy.gif');
+      background-size:cover; background-position:center; }
+    .hero .wrap { max-width:1080px; margin:0 auto; text-align:center; }
+    .hero h2 { margin:0 0 12px 0; font-size:32px; }
+    .hero p { margin:0 auto 20px; max-width:640px; color:#e2e8f0; }
+    .btn { display:inline-block; padding:12px 18px; border-radius:14px; text-decoration:none; background:var(--primary); color:#ffffff; font-weight:600; }
+    .btn:hover { background:var(--primary-dark); }
+
+    .container { max-width:1080px; margin:0 auto; padding:36px 24px; }
+    .grid { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+    .card { background:var(--card); border-radius:20px; padding:24px; box-shadow:0 10px 36px rgba(0,0,0,.08); }
+    .card h3 { margin-top:0; }
+    .tag { font-size:12px; color:var(--primary-dark); text-transform:uppercase; letter-spacing:.6px; }
+    .muted { color:var(--muted); }
+
+    section h2 { margin:0 0 8px 0; font-size:22px; }
+
+    form { display:grid; gap:12px; }
+    input, textarea { padding:11px; border-radius:10px; border:1px solid #cbd5e1; font-size:14px; }
+    input:focus, textarea:focus { outline:none; border-color:var(--primary); }
+
+    footer { background:#020617; color:#cbd5e1; padding:28px 24px; text-align:center; font-size:14px; }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="wrap">
+      <h1>Tapicería Eddy</h1>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
-<h1>🔧 Taller – Control Profesional</h1>
+  <section id="inicio" class="hero">
+    <div class="wrap">
+      <h2>Restauración y diseño de interiores en tapicería</h2>
+      <p>Especialistas en renovación de asientos de coche, techos, paneles de puerta y mobiliario. Acabados premium, materiales de alta resistencia y estética contemporánea.</p>
+      <a href="#contacto" class="btn">Solicitar presupuesto</a>
+    </div>
+  </section>
 
-<div class="box">
-<h2>Orden de trabajo</h2>
-<input id="cliente" placeholder="Cliente">
-<input id="trabajo" placeholder="Trabajo">
-<input id="horas" type="number" placeholder="Horas">
-<input id="materiales" type="number" placeholder="Materiales €">
-<input id="precio" type="number" placeholder="Precio cobrado €">
-<input id="costeHora" type="number" placeholder="Coste hora €">
-<button onclick="agregar()">Agregar</button>
-</div>
+  <main class="container">
+    <section id="servicios">
+      <span class="tag">Servicios principales</span>
+      <h2>Qué hacemos</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Tapicería Automotriz</h3>
+          <p class="muted">Retapizado de asientos, techo, volantes y paneles. Personalización en piel, alcántara y telas técnicas.</p>
+        </div>
+        <div class="card">
+          <h3>Reparación y Mantenimiento</h3>
+          <p class="muted">Corrección de desgaste, ajuste de espumas, costuras y refuerzos estructurales.</p>
+        </div>
+        <div class="card">
+          <h3>Mobiliario y Decoración</h3>
+          <p class="muted">Sofás, sillas y cabeceros con acabados modernos para hogares y espacios comerciales.</p>
+        </div>
+      </div>
+    </section>
 
-<div class="box">
-<h2>Resultados</h2>
-<table>
-<thead>
-<tr>
-<th>Cliente</th><th>Trabajo</th><th>Horas</th>
-<th>Coste</th><th>Precio</th><th>Beneficio</th>
-</tr>
-</thead>
-<tbody id="tabla"></tbody>
-</table>
-<p id="resumen"></p>
-</div>
+    <section id="portafolio" style="margin-top:36px;">
+      <span class="tag">Portafolio</span>
+      <h2>Proyectos recientes</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Renovación interior — BMW</h3>
+          <p class="muted">Tapizado integral en piel sintética con acabado microperforado.</p>
+        </div>
+        <div class="card">
+          <h3>Techo automotriz</h3>
+          <p class="muted">Sustitución de revestimiento con tejido técnico ignífugo.</p>
+        </div>
+        <div class="card">
+          <h3>Sillón contemporáneo</h3>
+          <p class="muted">Reinterpretación estética con líneas minimalistas.</p>
+        </div>
+      </div>
+    </section>
 
-<div class="box">
-<h2>📊 Dashboard</h2>
-<canvas id="grafica"></canvas>
-</div>
+    <section id="contacto" style="margin-top:36px;">
+      <span class="tag">Contacto</span>
+      <h2>Hable con nosotros</h2>
+      <div class="card">
+        <p class="muted">Solicite presupuesto o envíenos su consulta. Respondemos rápido.</p>
+        <form>
+          <input type="text" placeholder="Nombre" required />
+          <input type="tel" placeholder="Teléfono" />
+          <input type="email" placeholder="Correo electrónico" required />
+          <textarea rows="4" placeholder="Cuéntenos qué necesita"></textarea>
+          <button type="submit" class="btn">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-<script>
-let totalHoras = 0;
-let totalBeneficio = 0;
-
-function agregar() {
-  const c = cliente.value;
-  const t = trabajo.value;
-  const h = +horas.value;
-  const m = +materiales.value;
-  const p = +precio.value;
-  const ch = +costeHora.value;
-
-  if (!c || !t || !h || !p || !ch) {
-    alert("Completa todos los campos");
-    return;
-  }
-
-  const coste = (h * ch) + m;
-  const beneficio = p - coste;
-
-  totalHoras += h;
-  totalBeneficio += beneficio;
-
-  tabla.innerHTML += `
-    <tr>
-      <td>${c}</td>
-      <td>${t}</td>
-      <td>${h}</td>
-      <td>${coste.toFixed(2)} €</td>
-      <td>${p.toFixed(2)} €</td>
-      <td class="${beneficio>=0?'ok':'bad'}">
-        ${beneficio.toFixed(2)} €
-      </td>
-    </tr>
-  `;
-
-  resumen.innerHTML = `
-    ⏱ Horas productivas: <b>${totalHoras}</b><br>
-    💰 Beneficio total: <b>${totalBeneficio.toFixed(2)} €</b>
-  `;
-
-  dibujarGrafica();
-}
-
-function dibujarGrafica() {
-  if (window.graf) window.graf.destroy();
-  window.graf = new Chart(grafica, {
-    type: "bar",
-    data: {
-      labels: ["Horas", "Beneficio €"],
-      datasets: [{ data: [totalHoras, totalBeneficio] }]
-    }
-  });
-}
-</script>
-
+  <footer>
+    <p>© 2026 — Tapicería Eddy. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
+

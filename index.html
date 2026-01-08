@@ -3,144 +3,199 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tapicería Eddy — Taller de Tapicería</title>
+<title>Tapicería Eddy | Taller Profesional</title>
 
 <style>
-:root {
-  --ink:#ffffff;
+/* =====================
+   VARIABLES
+===================== */
+:root{
   --primary:#0ea5e9;
   --primary-dark:#0284c7;
-  --card-bg: rgba(255,255,255,0.10);
+  --text:#ffffff;
+  --muted:#cbd5e1;
+  --glass:rgba(255,255,255,0.12);
 }
 
-* {
-  box-sizing: border-box;
+/* =====================
+   RESET
+===================== */
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Inter, Arial, Helvetica, sans-serif;
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-body {
-  margin: 0;
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  color: var(--ink);
+/* =====================
+   VIDEO DE FONDO
+===================== */
+#video-bg{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
 }
 
-/* VIDEO DE FONDO */
-#video-bg {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
+/* OSCURECIDO */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(2,6,23,.75),
+    rgba(2,6,23,.85)
+  );
+  z-index:-1;
 }
 
-/* CAPA OSCURA */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(2,6,23,0.75);
-  z-index: -1;
+/* =====================
+   ESTRUCTURA
+===================== */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:32px 20px;
 }
 
-/* CONTENIDO */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 60px;
+header h1{
+  font-size:26px;
+  margin:0;
+  letter-spacing:.5px;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 28px;
-  letter-spacing: .5px;
+nav a{
+  color:var(--muted);
+  margin-left:18px;
+  text-decoration:none;
+  font-size:14px;
 }
 
-nav a {
-  color: #e5e7eb;
-  margin-left: 16px;
-  text-decoration: none;
-  font-size: 14px;
+nav a:hover{color:#fff}
+
+/* =====================
+   HERO
+===================== */
+.hero{
+  text-align:center;
+  padding:90px 20px 70px;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.hero h2{
+  font-size:40px;
+  margin-bottom:14px;
 }
 
-.hero {
-  text-align: center;
-  padding: 80px 20px;
+.hero p{
+  max-width:680px;
+  margin:auto;
+  color:var(--muted);
+  font-size:17px;
 }
 
-.hero h2 {
-  font-size: 34px;
-  margin-bottom: 12px;
+.btn{
+  display:inline-block;
+  margin-top:28px;
+  padding:14px 26px;
+  border-radius:16px;
+  background:var(--primary);
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
 }
 
-.hero p {
-  max-width: 640px;
-  margin: auto;
-  color: #e5e7eb;
+.btn:hover{background:var(--primary-dark)}
+
+/* =====================
+   TARJETAS
+===================== */
+.section{
+  margin-top:60px;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 18px;
-  border-radius: 14px;
-  background: var(--primary);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
+.section h3{
+  font-size:26px;
+  margin-bottom:22px;
 }
 
-.btn:hover {
-  background: var(--primary-dark);
+.grid{
+  display:grid;
+  gap:22px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 }
 
-.card {
-  background: var(--card-bg);
-  border-radius: 18px;
-  padding: 24px;
-  margin-top: 24px;
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(8px);
+  border-radius:20px;
+  padding:26px;
 }
 
-.grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.card h4{margin-top:0}
+
+/* =====================
+   FORMULARIO
+===================== */
+form input, form textarea{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  border-radius:12px;
+  border:none;
+  font-size:14px;
 }
 
-footer {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 14px;
-  opacity: .85;
+form button{
+  margin-top:16px;
+  padding:14px;
+  width:100%;
+  border:none;
+  border-radius:14px;
+  background:var(--primary);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
 }
 
-/* BOTÓN WHATSAPP */
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: #fff;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  text-decoration: none;
-  box-shadow: 0 6px 18px rgba(0,0,0,.35);
-  z-index: 10;
+/* =====================
+   FOOTER
+===================== */
+footer{
+  text-align:center;
+  margin:80px 0 30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* =====================
+   WHATSAPP
+===================== */
+.whatsapp{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  width:62px;
+  height:62px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+  z-index:20;
 }
 </style>
 </head>
@@ -153,7 +208,7 @@ footer {
 </video>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/34600000000" class="whatsapp-btn" target="_blank">💬</a>
+<a class="whatsapp" href="https://wa.me/34600000000" target="_blank">💬</a>
 
 <div class="container">
 
@@ -166,12 +221,16 @@ footer {
 </header>
 
 <section class="hero">
-  <h2>Tapicería automotriz y mobiliaria</h2>
-  <p>Especialistas en tapizado profesional de vehículos y muebles. Materiales de alta calidad y acabados premium.</p>
+  <h2>Tapicería profesional de alto nivel</h2>
+  <p>
+    Especialistas en tapicería automotriz y mobiliaria.
+    Restauración, personalización y acabados premium
+    con materiales de alta calidad.
+  </p>
   <a href="#contacto" class="btn">Solicitar presupuesto</a>
 </section>
 
-<section id="servicios" class="card">
+<section id="servicios" class="section">
   <h3>Servicios</h3>
   <div class="grid">
     <div class="card">
@@ -180,23 +239,25 @@ footer {
     </div>
     <div class="card">
       <h4>Mobiliario</h4>
-      <p>Sofás, sillas, cabeceros y restauración de muebles.</p>
+      <p>Sofás, sillas, cabeceros y restauración completa de muebles.</p>
     </div>
     <div class="card">
       <h4>Personalización</h4>
-      <p>Diseños a medida, materiales premium y atención personalizada.</p>
+      <p>Diseños a medida, piel, telas técnicas y detalles exclusivos.</p>
     </div>
   </div>
 </section>
 
-<section id="contacto" class="card">
+<section id="contacto" class="section">
   <h3>Contacto</h3>
-  <form>
-    <input type="text" placeholder="Nombre" required><br><br>
-    <input type="email" placeholder="Correo electrónico" required><br><br>
-    <textarea rows="4" placeholder="Mensaje"></textarea><br><br>
-    <button class="btn" type="submit">Enviar</button>
-  </form>
+  <div class="card">
+    <form>
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <textarea rows="4" placeholder="Cuéntanos qué necesitas"></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </div>
 </section>
 
 <footer>
@@ -207,4 +268,3 @@ footer {
 
 </body>
 </html>
-

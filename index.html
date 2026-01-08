@@ -1,173 +1,210 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tapicería Eddy — Estilo Moderno</title>
-  <style>
-    :root {
-      --bg:#0f172a;
-      --card:#ffffff;
-      --ink:#020617;
-      --primary:#0ea5e9;
-      --primary-dark:#0284c7;
-      --muted:#64748b;
-    } #video-bg {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tapicería Eddy — Taller de Tapicería</title>
+
+<style>
+:root {
+  --ink:#ffffff;
+  --primary:#0ea5e9;
+  --primary-dark:#0284c7;
+  --card-bg: rgba(255,255,255,0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: var(--ink);
+}
+
+/* VIDEO DE FONDO */
+#video-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: -2;
 }
 
-body 
-    <video autoplay muted loop playsinline id="video-bg">
-  <source src="fondo-empresarial.mp4" type="video/mp4">
-</video>
- {
-  margin:0;
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  color:var(--ink);
+/* CAPA OSCURA */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.75);
+  z-index: -1;
 }
 
-
-    * { box-sizing:border-box; }
-  body
-    <video autoplay muted loop playsinline id="video-bg">
-  <source src="fondo-empresarial.mp4" type="video/mp4">
-</video>
-  margin:0;
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  color:var(--ink);
-
-  background:
-    linear-gradient(180deg, rgba(2,6,23,.85), rgba(2,6,23,.85)),
-    url('fondo-empresarial.jpg');
-
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
+/* CONTENIDO */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
-    header { background:linear-gradient(135deg,#020617,#0f172a); color:#f8fafc; padding:28px 24px; }
-    header .wrap { max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
-    header h1 { margin:0; font-size:26px; letter-spacing:.5px; }
-    nav a { color:#e2e8f0; margin-left:16px; text-decoration:none; font-size:14px; }
-    nav a:hover { text-decoration:underline; }
-
-   .hero {
-  padding:100px 24px;
-  color:#f1f5f9;
-  background:
-    linear-gradient(180deg,rgba(2,6,23,.65),rgba(2,6,23,.9)),
-    url('https://media.giphy.com/media/xT9IgIc0lryrxvqVGM/giphy.gif?v=3');
-  background-size:cover;
-  background-position:center;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
 }
-      background-size:cover; background-position:center; }
-    .hero .wrap { max-width:1080px; margin:0 auto; text-align:center; }
-    .hero h2 { margin:0 0 12px 0; font-size:32px; }
-    .hero p { margin:0 auto 20px; max-width:640px; color:#e2e8f0; }
-    .btn { display:inline-block; padding:12px 18px; border-radius:14px; text-decoration:none; background:var(--primary); color:#ffffff; font-weight:600; }
-    .btn:hover { background:var(--primary-dark); }
 
-    .container { max-width:1080px; margin:0 auto; padding:36px 24px; }
-    .grid { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
-    .card { background:var(--card); border-radius:20px; padding:24px; box-shadow:0 10px 36px rgba(0,0,0,.08); }
-    .card h3 { margin-top:0; }
-    .tag { font-size:12px; color:var(--primary-dark); text-transform:uppercase; letter-spacing:.6px; }
-    .muted { color:var(--muted); }
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: .5px;
+}
 
-    section h2 { margin:0 0 8px 0; font-size:22px; }
+nav a {
+  color: #e5e7eb;
+  margin-left: 16px;
+  text-decoration: none;
+  font-size: 14px;
+}
 
-    form { display:grid; gap:12px; }
-    input, textarea { padding:11px; border-radius:10px; border:1px solid #cbd5e1; font-size:14px; }
-    input:focus, textarea:focus { outline:none; border-color:var(--primary); }
+nav a:hover {
+  text-decoration: underline;
+}
 
-    footer { background:#020617; color:#cbd5e1; padding:28px 24px; text-align:center; font-size:14px; }
-  </style>
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 640px;
+  margin: auto;
+  color: #e5e7eb;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 14px;
+  opacity: .85;
+}
+
+/* BOTÓN WHATSAPP */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  z-index: 10;
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="wrap">
-      <h1>Tapicería Eddy</h1>
-      <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#portafolio">Portafolio</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+
+<!-- VIDEO DE FONDO -->
+<video autoplay muted loop playsinline id="video-bg">
+  <source src="fondo-empresarial.mp4" type="video/mp4">
+</video>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/34600000000" class="whatsapp-btn" target="_blank">💬</a>
+
+<div class="container">
+
+<header>
+  <h1>Tapicería Eddy</h1>
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Tapicería automotriz y mobiliaria</h2>
+  <p>Especialistas en tapizado profesional de vehículos y muebles. Materiales de alta calidad y acabados premium.</p>
+  <a href="#contacto" class="btn">Solicitar presupuesto</a>
+</section>
+
+<section id="servicios" class="card">
+  <h3>Servicios</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>Tapicería Automotriz</h4>
+      <p>Asientos, techos, paneles y volantes con acabados profesionales.</p>
     </div>
-  </header>
-
-  <section id="inicio" class="hero">
-    <div class="wrap">
-      <h2>Restauración y diseño de interiores en tapicería</h2>
-      <p>Especialistas en renovación de asientos de coche, techos, paneles de puerta y mobiliario. Acabados premium, materiales de alta resistencia y estética contemporánea.</p>
-      <a href="#contacto" class="btn">Solicitar presupuesto</a>
+    <div class="card">
+      <h4>Mobiliario</h4>
+      <p>Sofás, sillas, cabeceros y restauración de muebles.</p>
     </div>
-  </section>
+    <div class="card">
+      <h4>Personalización</h4>
+      <p>Diseños a medida, materiales premium y atención personalizada.</p>
+    </div>
+  </div>
+</section>
 
-  <main class="container">
-    <section id="servicios">
-      <span class="tag">Servicios principales</span>
-      <h2>Qué hacemos</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Tapicería Automotriz</h3>
-          <p class="muted">Retapizado de asientos, techo, volantes y paneles. Personalización en piel, alcántara y telas técnicas.</p>
-        </div>
-        <div class="card">
-          <h3>Reparación y Mantenimiento</h3>
-          <p class="muted">Corrección de desgaste, ajuste de espumas, costuras y refuerzos estructurales.</p>
-        </div>
-        <div class="card">
-          <h3>Mobiliario y Decoración</h3>
-          <p class="muted">Sofás, sillas y cabeceros con acabados modernos para hogares y espacios comerciales.</p>
-        </div>
-      </div>
-    </section>
+<section id="contacto" class="card">
+  <h3>Contacto</h3>
+  <form>
+    <input type="text" placeholder="Nombre" required><br><br>
+    <input type="email" placeholder="Correo electrónico" required><br><br>
+    <textarea rows="4" placeholder="Mensaje"></textarea><br><br>
+    <button class="btn" type="submit">Enviar</button>
+  </form>
+</section>
 
-    <section id="portafolio" style="margin-top:36px;">
-      <span class="tag">Portafolio</span>
-      <h2>Proyectos recientes</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Renovación interior — BMW</h3>
-          <p class="muted">Tapizado integral en piel sintética con acabado microperforado.</p>
-        </div>
-        <div class="card">
-          <h3>Techo automotriz</h3>
-          <p class="muted">Sustitución de revestimiento con tejido técnico ignífugo.</p>
-        </div>
-        <div class="card">
-          <h3>Sillón contemporáneo</h3>
-          <p class="muted">Reinterpretación estética con líneas minimalistas.</p>
-        </div>
-      </div>
-    </section>
+<footer>
+  © 2026 — Tapicería Eddy · Taller de tapicería profesional
+</footer>
 
-    <section id="contacto" style="margin-top:36px;">
-      <span class="tag">Contacto</span>
-      <h2>Hable con nosotros</h2>
-      <div class="card">
-        <p class="muted">Solicite presupuesto o envíenos su consulta. Respondemos rápido.</p>
-        <form>
-          <input type="text" placeholder="Nombre" required />
-          <input type="tel" placeholder="Teléfono" />
-          <input type="email" placeholder="Correo electrónico" required />
-          <textarea rows="4" placeholder="Cuéntenos qué necesita"></textarea>
-          <button type="submit" class="btn">Enviar mensaje</button>
-        </form>
-      </div>
-    </section>
-  </main>
+</div>
 
-  <footer>
-    <p>© 2026 — Tapicería Eddy. Todos los derechos reservados.</p>
-  </footer>
 </body>
 </html>
 
